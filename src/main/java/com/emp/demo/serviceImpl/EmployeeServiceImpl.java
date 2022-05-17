@@ -19,9 +19,11 @@ import com.emp.demo.util.EmployeeMapper;
 public class EmployeeServiceImpl implements EmployeeService {
 	@Autowired
 	EmployeeRepository empRepo;
-	@Autowired
+	
 	//@Qualifier("/target/generated-sources/annotations/com/emp/demo/util/EmployeeMapperImpl")
+	@Autowired
 	EmployeeMapper empMapper;
+	
 	//get
 	public List<EmployeeDTO> getAllEmployees()  throws ResourceNotFoundException
 	{ 
