@@ -15,4 +15,6 @@ public interface EmployeeService {
 	//public List<Employee> getAllEmployees() throws ResourceNotFoundException;
 	//create employee
 	public EmployeeDTO createAndSaveEmployee(EmployeeDTO employee)throws DuplicateResourceFound;
+	public EmployeeDTO getEmployeeById(long id) throws ResourceNotFoundException;
+	public EmployeeDTO updateEmployeeById(Long id, EmployeeDTO emp) throws ResourceNotFoundException;
 }

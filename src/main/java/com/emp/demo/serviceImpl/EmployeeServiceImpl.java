@@ -40,5 +40,24 @@ public class EmployeeServiceImpl implements EmployeeService {
 		 		return (savedEmployeeDTO);
 		 }
 	
+	//getEmployeeByID
+	public EmployeeDTO getEmployeeById(long id) throws ResourceNotFoundException{
+		Employee emp = empRepo.getById(id);
+		return(empMapper.toEmployeeDTO(emp));
+		
+	}
+	
+	//update Employee ByID
+	public EmployeeDTO updateEmployeeById(Long id, EmployeeDTO emp) throws ResourceNotFoundException{
+		Employee empl= empRepo.findById(id)
+				.orElseThrow(()->new ResourceNotFoundException("employee DNE with id"+id));
+		empl.setFirstName(emp.getFirstName());
+		empl.setLastName(emp.getLastName());
+		empl.setEmailId(emp.getEmailId());
+		
+		Employee savedEmp=empRepo.save(empl);
+		return empMapper.toEmployeeDTO(savedEmp);
+		
+	}
 	}
 
